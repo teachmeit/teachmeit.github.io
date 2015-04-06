@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>Learn Something New Everyday! - Programming</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">Learn Something New Everyday! </a></h1>
+                <nav><ul>
+                    <li class="active"><a href="/category/programming.html">Programming</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/cover-geojson-shape-with-geohashes.html">Cover GeoJSON shape with geohashes</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2015-03-18T10:20:00+01:00">
+                Published: Wed 18 March 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/jerry-xu.html">Jerry Xu</a>
+        </address>
+<p>In <a href="/category/programming.html">Programming</a>. </p>
+
+</footer><!-- /.post-info --><h1>Geohash-shape</h1>
+<p>Transform a shapely GeoJSON Shape (Box, Polygon, MultiPolygon) to a list of geohashes that cover it.</p>
+<h2>Usage</h2>
+<p>Get an array of geohashes to cover the shape.</p>
+<div class="highlight"><pre><span class="n">polygons_geojson</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;{&quot;type&quot;:&quot;MultiPolygon&quot;,&quot;coordinates&quot;:[[[[-122.54974365234374,37.77071473849609],</span>
+<span class="s">        [-122.53601074218751,37.70989935485515],[-122.46597290039062,37.72184917678752],</span>
+<span class="s">        [-122.43301391601562,37.738141282210385],[-122.48794555664061,37.78808138412046],</span>
+<span class="s">        [-122.54974365234374,37.77071473849609]]],[[[-122.46734619140625,37.846663684549156],</span>
+<span class="s">        [-122.2723388671875,37.743571187449064],[-122.22290039062499,37.84557924966551],</span>
+<span class="s">        [-122.24899291992188,37.89761413273189],[-122.46734619140625,37.846663684549156]]]]}&quot;&quot;&quot;</span>
+
+<span class="n">polygons_geom</span> <span class="o">=</span> <span class="n">load_from_JSON</span><span class="p">(</span><span class="n">polygons_geojson</span><span class="p">)</span>
+
+<span class="n">geohash_shape</span><span class="p">(</span><span class="n">polygons_geom</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Result</p>
+<div class="highlight"><pre>[
+&#39;9q8ye8&#39;,
+&#39;9q8ye9&#39;,
+&#39;9q8yec&#39;,
+...
+&#39;9q9pd4&#39;,
+&#39;9q9pd5&#39;
+]
+</pre></div>
+
+
+<h2>Options</h2>
+<ul>
+<li><code>shape</code>: shapely shape to cover</li>
+<li><code>precision</code>: geohash precision</li>
+<li><code>mode</code>: defines filtering of the returned geohashes<ul>
+<li>intersect - all geohashes intersect the shape.<br />
+Use 'threashold' option to specify a percent of least coverage.  The 'threashold' option is a relatively expensive operation because it needs to calculate the area of each intersection.  </li>
+<li>inside - all geohashes inside the shape.  </li>
+<li>center - all geohashes whose center is inside the shape.  </li>
+</ul>
+</li>
+</ul>
+<h2>Installtion</h2>
+<div class="highlight"><pre>pip install geohash-shape
+</pre></div>
+
+
+<h1>Credits</h1>
+<p>This work is inspired by <a href="https://github.com/derrickpelletier/geohash-poly">geohash_poly</a>  and <a href="https://github.com/sunng87/node-geohash">node-geohash</a>.</p>                </article>
+<p class="paginator">
+    Page 1 / 1
+</p>
+            </aside><!-- /#featured -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
